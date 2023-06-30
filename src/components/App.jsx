@@ -3,15 +3,15 @@ import React, { useState, useEffect } from 'react';
 import Diet from './Diet';
 
 function App() {
+  const apiKey = process.env.REACT_APP_API_KEY;
   const [diets, setDiets] = useState([]);
   const [loading, setLoading] = useState(true);
-  const MY_KEY = ""
 
     const fetchData = async () => {
       try {
         const response = await axios.get("https://open.neis.go.kr/hub/mealServiceDietInfo", {
           params: {
-            KEY: 'MY_KEY',
+            KEY: apiKey,
             Type: 'json',
             pIndex: 1,
             pSize: 5,
